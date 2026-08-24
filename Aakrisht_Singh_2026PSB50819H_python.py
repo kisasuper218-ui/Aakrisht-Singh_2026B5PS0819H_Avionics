@@ -19,8 +19,12 @@ cleaned_data=data.rolling(window=5,min_periods=1,center=True).mean()  #Creates a
 fig, axis=plt.subplots() #Setting up the graph
 axis.set_xlim(0,len(points))
 axis.set_ylim(min(data)-50,0)
+axis.set_title('Depth Measurement',fontweight='bold',fontsize=16, color='#071450')
+axis.set_xlabel('Time(s)', color='#1c5296', fontsize=12)
+axis.set_ylabel('Depth(m)', color='#1c5296', fontsize = 12)
+axis.grid(True,alpha=0.3)
 
-line, = axis.plot([],[]) 
+line, = axis.plot([],[], color='#1606a3',linewidth=2) 
 
 def update_frames(frames): #function to update frames that updates the graph each second
     x=range(frames+1)
@@ -30,7 +34,7 @@ def update_frames(frames): #function to update frames that updates the graph eac
     return line,
 
 animation=FuncAnimation(  
-    fig=fig,func=update_frames,frames=len(data),interval=1000,blit=True,repeat=False #This is he function that creates the animation
+    fig=fig,func=update_frames,frames=len(data),interval=1,blit=True,repeat=False #This is he function that creates the animation
 )
 
 plt.show()
