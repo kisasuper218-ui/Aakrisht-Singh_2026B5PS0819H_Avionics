@@ -30,7 +30,7 @@ def update_frames(frames): #function to update frames that updates the graph eac
     return line,
 
 animation=FuncAnimation(  
-    fig=fig,func=update_frames,frames=len(data),interval=1000,blit=True,repeat=False #This ist he function that creates the animation
+    fig=fig,func=update_frames,frames=len(data),interval=1000,blit=True,repeat=False #This is he function that creates the animation
 )
 
 plt.show()
